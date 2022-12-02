@@ -5,9 +5,9 @@
 dev.off()
 rm(list=ls())
 
-########## I have downloaded original data structure that has folders by countries´ names and then folders with a year of survey 
-setwd("C:\\Users\\Magdalena\\demography\\happyindex\\data\\SILC\\countries")
-alldirs <- list.dirs("C:\\Users\\Magdalena\\demography\\happyindex\\data\\SILC\\countries")
+########## I have downloaded original data structure that has folders by countriesÂ´ names and then folders with a year of survey 
+setwd("xxx")
+alldirs <- list.dirs("xxx")
 myfold <- sort(unique(substr(alldirs,62,63)))[-1]
 
 years <- 2007:2018
@@ -15,7 +15,7 @@ years <- 2007:2018
 i=1
 j=10
 
-mypath <- paste("C:\\Users\\Magdalena\\demography\\happyindex\\data\\SILC\\countries\\",myfold[i], "\\", years[j],sep="")
+mypath <- paste("xxx\\",myfold[i], "\\", years[j],sep="")
 setwd(mypath)
 
 mydata1 <- read.table(file=paste("UDB_cAT",substr(years[j],3,4),"P.csv", sep=""), sep=",", header=TRUE)
@@ -30,12 +30,12 @@ setwd("C:\\Users\\mmuszynska\\happy\\happyindex\\data\\SILC\\all")
 write.table(mydata2, file="silc2018.csv", sep=",", row.names = FALSE)
 
 for (i in 2: length(myfold)){
-  mypath <- paste("C:\\Users\\mmuszynska\\happy\\happyindex\\data\\SILC\\countries\\",myfold[i], "\\2018",sep="")
+  mypath <- paste("xxx\\",myfold[i], "\\2018",sep="")
   setwd(mypath)
   myfile <- paste("UDB_c", myfold[i], "18P.csv", sep="")
   mydata1 <- read.table(file=myfile, sep=",", header=TRUE)
   mydata2 <- cbind(mydata1$PB020, mydata1$PB040, mydata1$PB100, mydata1$PB110,mydata1$PB130, mydata1$PB140,  mydata1$PB150, mydata1$PH010,mydata1$PH020, mydata1$PH030, mydata1$PW010T)
-  setwd("C:\\Users\\mmuszynska\\happy\\happyindex\\data\\SILC\\all")
+  setwd("xxx\\all")
   write.table(mydata2, file="silc2018.csv", sep=",", row.names = FALSE, col.names=FALSE, append=TRUE)
   }
 
@@ -44,7 +44,7 @@ for (i in 2: length(myfold)){
 ######################################################################################################
 rm(list=ls())
 
-setwd("C:\\Users\\Magdalena\\demography\\happyindex\\data\\SILC")
+setwd("xxx")
 mydata <- read.table(file="silc2018.csv", sep=",", header=TRUE)
 
 #### if year of interview is missing we assume 2018
